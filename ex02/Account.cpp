@@ -6,7 +6,7 @@
 /*   By: cjeon <cjeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 16:57:06 by cjeon             #+#    #+#             */
-/*   Updated: 2022/03/12 19:12:01 by cjeon            ###   ########.fr       */
+/*   Updated: 2022/03/12 19:15:43 by cjeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ bool Account::makeWithdrawal(int withdrawal) {
     return false;
   }
   _amount -= withdrawal;
-  _totalAmount -= _amount;
+  _totalAmount -= withdrawal;
   ++_totalNbWithdrawals;
   ++_nbWithdrawals;
   std::cout << withdrawal;
