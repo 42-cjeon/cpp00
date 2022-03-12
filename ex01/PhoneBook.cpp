@@ -6,7 +6,7 @@
 /*   By: cjeon <cjeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 14:41:50 by cjeon             #+#    #+#             */
-/*   Updated: 2022/03/12 19:11:49 by cjeon            ###   ########.fr       */
+/*   Updated: 2022/03/12 19:25:55 by cjeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void PhoneBook::print_contact_detail(size_t index) {
   std::cout << "  | lastname: " << contact.lastname() << std::endl;
   std::cout << "  | nickname: " << contact.nickname() << std::endl;
   std::cout << "  | phone number: " << contact.phone_number() << std::endl;
-  std::cout << "  | darkest secret" << contact.darkest_secret() << std::endl;
+  std::cout << "  | darkest secret: " << contact.darkest_secret() << std::endl;
 }
 
 void PhoneBook::print_header(void) {
