@@ -26,7 +26,7 @@ class PhoneBook {
   Contact contacts_[max_contacts_];
   int cursor_;
   int space_left_;
-  
+
   void print_header(void);
   void print_hr(const char c);
   void print_contact(size_t index);

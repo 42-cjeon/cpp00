@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <iomanip>
-#include <sstream>
-
 #include "utils.hpp"
+
+#include <iomanip>
+#include <iostream>
+#include <sstream>
 
 void lead::show_banner(void) { std::cout << lead::banner << std::endl; }
 
@@ -28,16 +28,16 @@ void lead::print_with_width(const std::string &str, size_t width) {
   }
 }
 
-std::istream &lead::getline_prompt(std::istream &stream, std::string &str, const std::string &prompt) {
-  if (!stream.good())
-    return stream;
+std::istream &lead::getline_prompt(std::istream &stream, std::string &str,
+                                   const std::string &prompt) {
+  if (!stream.good()) return stream;
   std::cout << prompt;
   return std::getline(stream, str);
 }
 
-std::istream &lead::getline_prompt(std::istream &stream, int &k, const std::string &prompt) {
-  if (!stream.good())
-    return stream;
+std::istream &lead::getline_prompt(std::istream &stream, int &k,
+                                   const std::string &prompt) {
+  if (!stream.good()) return stream;
   std::cout << prompt;
   std::string str;
   std::getline(stream, str);

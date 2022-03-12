@@ -10,10 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "PhoneBook.hpp"
+
 #include <iomanip>
 #include <iostream>
 
-#include "PhoneBook.hpp"
 #include "utils.hpp"
 
 PhoneBook::PhoneBook(void) : cursor_(0), space_left_(max_contacts_) {}
@@ -25,7 +26,7 @@ bool PhoneBook::add(void) {
   lead::getline_prompt(std::cin, line, " - Enter firstname: ");
   if (!std::cin.good() || !contact.set_firstname(line)) {
     return false;
-  } 
+  }
   lead::getline_prompt(std::cin, line, " - Enter lastname: ");
   if (!std::cin.good() || !contact.set_lastname(line)) {
     return false;
@@ -69,8 +70,7 @@ void PhoneBook::print_contacts(void) {
   size_t end = space_left_ ? cursor_ : max_contacts_;
 
   print_header();
-  for (size_t i = 0; i < end; ++i)
-    print_contact(i);
+  for (size_t i = 0; i < end; ++i) print_contact(i);
   print_hr('*');
 }
 
