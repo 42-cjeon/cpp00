@@ -6,7 +6,7 @@
 /*   By: cjeon <cjeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 14:41:50 by cjeon             #+#    #+#             */
-/*   Updated: 2022/03/12 19:25:55 by cjeon            ###   ########.fr       */
+/*   Updated: 2022/03/12 23:57:44 by cjeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ void PhoneBook::search(void) {
   int index;
   lead::getline_prompt(std::cin, index, " - Enter index: ");
   if (!std::cin.good() || index < 0 || max_contacts_ - space_left_ <= index) {
+    std::cout << "  [!] invalid index" << std::endl;
     if (!std::cin.eof() && std::cin.fail()) {
-      std::cout << "  [!] invalid index" << std::endl;
       std::cin.clear();
     }
     return;
