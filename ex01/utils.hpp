@@ -6,7 +6,7 @@
 /*   By: cjeon <cjeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 16:37:20 by cjeon             #+#    #+#             */
-/*   Updated: 2022/03/10 23:41:05 by cjeon            ###   ########.fr       */
+/*   Updated: 2022/03/12 14:26:39 by cjeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ static const char * const banner =
 void show_banner(void);
 void print_with_width(const std::string &str, size_t width);
 std::istream &getline_prompt(std::istream &stream, std::string &str, const std::string &prompt);
+std::istream &getline_prompt(std::istream &stream, int &k, const std::string &prompt);
 }  // namespace lead
 
 #endif

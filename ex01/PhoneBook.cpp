@@ -6,7 +6,7 @@
 /*   By: cjeon <cjeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 14:41:50 by cjeon             #+#    #+#             */
-/*   Updated: 2022/03/11 12:41:26 by cjeon            ###   ########.fr       */
+/*   Updated: 2022/03/12 14:40:05 by cjeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,28 @@ bool PhoneBook::add(void) {
 }
 
 void PhoneBook::search(void) {
-  size_t end = space_left_ ? cursor_ : max_contacts_;
-  char fill_char = std::cout.fill();
+  if (space_left_ == max_contacts_) {
+    std::cout << " [!] empty contacts" << std::endl;
+    return;
+  }
+  print_contacts();
+  int index;
+  lead::getline_prompt(std::cin, index, "- Enter index: ");
+  if (std::cin.fail() || index < 0 || max_contacts_ - space_left_ <= index) {
+    std::cout << " [!] invalid index" << std::cout;
+    std::cin.clear();
+    return;
+  }
+  
+}
 
-  std::cout.fill(fill_char);
+void PhoneBook::print_contacts(void) {
+  size_t end = space_left_ ? cursor_ : max_contacts_;
+
   print_header();
   for (size_t i = 0; i < end; ++i)
     print_contact(i);
   print_hr();
-  std::cout.fill(fill_char);
 }
 
 void PhoneBook::print_contact(size_t index) {

@@ -6,7 +6,7 @@
 /*   By: cjeon <cjeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 14:58:24 by cjeon             #+#    #+#             */
-/*   Updated: 2022/03/11 12:39:16 by cjeon            ###   ########.fr       */
+/*   Updated: 2022/03/12 14:19:03 by cjeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class PhoneBook {
   void print_header(void);
   void print_hr(void);
   void print_contact(size_t index);
+  void print_contacts(void);
 };
 
 #endif
