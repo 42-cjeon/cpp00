@@ -6,7 +6,7 @@
 /*   By: cjeon <cjeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 14:41:50 by cjeon             #+#    #+#             */
-/*   Updated: 2022/03/12 14:40:05 by cjeon            ###   ########.fr       */
+/*   Updated: 2022/03/12 17:10:38 by cjeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,23 +23,23 @@ bool PhoneBook::add(void) {
   std::string line;
 
   lead::getline_prompt(std::cin, line, " - Enter firstname: ");
-  if (!contact.set_firstname(line)) {
+  if (!std::cin.good() || !contact.set_firstname(line)) {
     return false;
   } 
   lead::getline_prompt(std::cin, line, " - Enter lastname: ");
-  if (!contact.set_lastname(line)) {
+  if (!std::cin.good() || !contact.set_lastname(line)) {
     return false;
   }
   lead::getline_prompt(std::cin, line, " - Enter nickname: ");
-  if (!contact.set_nickname(line)) {
+  if (!std::cin.good() || !contact.set_nickname(line)) {
     return false;
   }
   lead::getline_prompt(std::cin, line, " - Enter phone number: ");
-  if (!contact.set_phone_number(line)) {
+  if (!std::cin.good() || !contact.set_phone_number(line)) {
     return false;
   }
   lead::getline_prompt(std::cin, line, " - Enter darkest secret: ");
-  if (!contact.set_darkest_secret(line)) {
+  if (!std::cin.good() || !contact.set_darkest_secret(line)) {
     return false;
   }
   cursor_ = (cursor_ == max_contacts_ - 1) ? 0 : cursor_ + 1;
@@ -49,18 +49,20 @@ bool PhoneBook::add(void) {
 
 void PhoneBook::search(void) {
   if (space_left_ == max_contacts_) {
-    std::cout << " [!] empty contacts" << std::endl;
+    std::cout << " [!] contacts empty" << std::endl;
     return;
   }
   print_contacts();
   int index;
-  lead::getline_prompt(std::cin, index, "- Enter index: ");
-  if (std::cin.fail() || index < 0 || max_contacts_ - space_left_ <= index) {
-    std::cout << " [!] invalid index" << std::cout;
-    std::cin.clear();
+  lead::getline_prompt(std::cin, index, " - Enter index: ");
+  if (!std::cin.good() || index < 0 || max_contacts_ - space_left_ <= index) {
+    if (!std::cin.eof() && std::cin.fail()) {
+      std::cout << "  [!] invalid index" << std::endl;
+      std::cin.clear();
+    }
     return;
   }
-  
+  print_contact_detail(index);
 }
 
 void PhoneBook::print_contacts(void) {
@@ -69,7 +71,7 @@ void PhoneBook::print_contacts(void) {
   print_header();
   for (size_t i = 0; i < end; ++i)
     print_contact(i);
-  print_hr();
+  print_hr('*');
 }
 
 void PhoneBook::print_contact(size_t index) {
@@ -86,8 +88,18 @@ void PhoneBook::print_contact(size_t index) {
   std::cout << '|' << std::endl;
 }
 
+void PhoneBook::print_contact_detail(size_t index) {
+  const Contact &contact = contacts_[index];
+
+  std::cout << "  | firstname: " << contact.firstname() << std::endl;
+  std::cout << "  | lastname: " << contact.lastname() << std::endl;
+  std::cout << "  | nickname: " << contact.nickname() << std::endl;
+  std::cout << "  | phone number: " << contact.phone_number() << std::endl;
+  std::cout << "  | darkest secret" << contact.darkest_secret() << std::endl;
+}
+
 void PhoneBook::print_header(void) {
-  print_hr();
+  print_hr('*');
   std::cout << '|';
   lead::print_with_width("index", 10);
   std::cout << '|';
@@ -97,11 +109,11 @@ void PhoneBook::print_header(void) {
   std::cout << '|';
   lead::print_with_width("nickname", 10);
   std::cout << '|' << std::endl;
-  print_hr();
+  print_hr('|');
 }
 
-void PhoneBook::print_hr(void) {
+void PhoneBook::print_hr(const char c) {
   char fill_char = std::cout.fill();
-  std::cout << '|' << std::setfill('-') << std::setw(44) << '|' << std::endl;
+  std::cout << c << std::setfill('-') << std::setw(44) << c << std::endl;
   std::cout.fill(fill_char);
 }

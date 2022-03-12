@@ -6,7 +6,7 @@
 /*   By: cjeon <cjeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 16:37:17 by cjeon             #+#    #+#             */
-/*   Updated: 2022/03/12 14:37:34 by cjeon            ###   ########.fr       */
+/*   Updated: 2022/03/12 17:12:27 by cjeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,25 @@ void lead::print_with_width(const std::string &str, size_t width) {
 }
 
 std::istream &lead::getline_prompt(std::istream &stream, std::string &str, const std::string &prompt) {
+  if (!stream.good())
+    return stream;
   std::cout << prompt;
   return std::getline(stream, str);
 }
 
 std::istream &lead::getline_prompt(std::istream &stream, int &k, const std::string &prompt) {
+  if (!stream.good())
+    return stream;
   std::cout << prompt;
   std::string str;
-  std::istream &istream = std::getline(stream, str);
-  if (!istream.good()) {
-    return istream;
+  std::getline(stream, str);
+  if (!stream.good()) {
+    return stream;
   }
   std::istringstream int_stream(str);
   int_stream >> k;
   if (int_stream.fail()) {
-    istream.setstate(std::ios::failbit);
+    stream.setstate(std::ios::failbit);
   }
-  return istream;
+  return stream;
 }
