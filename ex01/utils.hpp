@@ -6,12 +6,14 @@
 /*   By: cjeon <cjeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 16:37:20 by cjeon             #+#    #+#             */
-/*   Updated: 2022/03/12 17:22:08 by cjeon            ###   ########.fr       */
+/*   Updated: 2022/03/12 17:24:27 by cjeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef UTILS_H_
 #define UTILS_H_
+
+#include <iostream>
 
 namespace lead {
 static const char *const banner =

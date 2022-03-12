@@ -6,14 +6,13 @@
 /*   By: cjeon <cjeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 16:37:17 by cjeon             #+#    #+#             */
-/*   Updated: 2022/03/12 17:12:27 by cjeon            ###   ########.fr       */
+/*   Updated: 2022/03/12 17:24:42 by cjeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.hpp"
 
 #include <iomanip>
-#include <iostream>
 #include <sstream>
 
 void lead::show_banner(void) { std::cout << lead::banner << std::endl; }
