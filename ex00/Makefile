@@ -6,7 +6,7 @@
 #    By: cjeon <cjeon@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/03 14:41:59 by cjeon             #+#    #+#              #
-#    Updated: 2022/03/03 14:41:59 by cjeon            ###   ########.fr        #
+#    Updated: 2022/03/12 16:21:40 by cjeon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ all : $(NAME)
 $(NAME) : $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $@ $<
 
-%.o : %.c
+%.o : %.cpp
 	$(CXX) $(CXXFLAGS) $<
 
 clean :
