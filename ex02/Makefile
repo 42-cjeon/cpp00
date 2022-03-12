@@ -6,12 +6,12 @@
 #    By: cjeon <cjeon@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/03 14:42:04 by cjeon             #+#    #+#              #
-#    Updated: 2022/03/11 20:10:43 by cjeon            ###   ########.fr        #
+#    Updated: 2022/03/12 19:10:37 by cjeon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror
+CXXFLAGS = -std=c++98 -pedantic -Wall -Wextra -Werror
 
 NAME = main
 SRCS = Account.cpp tests.cpp

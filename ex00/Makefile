@@ -6,12 +6,12 @@
 #    By: cjeon <cjeon@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/03 14:41:59 by cjeon             #+#    #+#              #
-#    Updated: 2022/03/12 16:21:40 by cjeon            ###   ########.fr        #
+#    Updated: 2022/03/12 19:10:52 by cjeon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror
+CXXFLAGS = -std=c++98 -pedantic -Wall -Wextra -Werror
 
 NAME = megaphone
 SRCS = megaphone.cpp
@@ -23,7 +23,7 @@ $(NAME) : $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $@ $<
 
 %.o : %.cpp
-	$(CXX) $(CXXFLAGS) $<
+	$(CXX) $(CXXFLAGS) -c $<
 
 clean :
 	rm -f $(OBJS)

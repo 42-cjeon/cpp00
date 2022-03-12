@@ -6,12 +6,12 @@
 #    By: cjeon <cjeon@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/03 14:42:04 by cjeon             #+#    #+#              #
-#    Updated: 2022/03/12 17:13:45 by cjeon            ###   ########.fr        #
+#    Updated: 2022/03/12 19:10:47 by cjeon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror
+CXXFLAGS = -std=c++98 -pedantic -Wall -Wextra -Werror
 
 NAME = lead
 SRCS = Contact.cpp PhoneBook.cpp utils.cpp lead.cpp
@@ -23,7 +23,7 @@ $(NAME) : $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
 %.o : %.cpp
-	$(CXX) $(CXXFLAGS) $<
+	$(CXX) $(CXXFLAGS) -c $<
 
 clean :
 	rm -f $(OBJS)
