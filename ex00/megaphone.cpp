@@ -6,15 +6,16 @@
 /*   By: cjeon <cjeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 14:41:55 by cjeon             #+#    #+#             */
-/*   Updated: 2022/03/10 04:41:32 by cjeon            ###   ########.fr       */
+/*   Updated: 2022/03/12 14:14:55 by cjeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <cctype>
 #include <iostream>
 
 std::string &str_toupper(std::string &str) {
   for (std::string::iterator it = str.begin(); it != str.end(); ++it)
-    *it = toupper(*it);
+    *it = std::toupper(*it);
   return str;
 }
 
